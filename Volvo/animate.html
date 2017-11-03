@@ -22,11 +22,12 @@
 	</div>
 <button id="playButton">Play/Pause</button>
 <script type="text/javascript"> 
-		var myVideo = document.getElementById("myvideo");
-var playButton = document.getElementById('playButton');
-	playButton.click();
-            playButton.addEventListener('click', function () {
-                if (myVideo.paused) {
+	$(document).ready(function() {
+		var myVideo = $("#myvideo");
+var playButton = $('#playButton');
+	playButton.trigger("click");
+		 playButton.click(function() {
+            if (myVideo.paused) {
                     if (myVideo.requestFullscreen) {
                         myVideo.requestFullscreen();
                     }
@@ -41,10 +42,9 @@ var playButton = document.getElementById('playButton');
                     }
                     myVideo.play();
                 }
-                else {
-                    myVideo.pause();
-                }
-            }, false);
+       		 });
+            
+		});
 	</script>
   </body> 
 </html> 
