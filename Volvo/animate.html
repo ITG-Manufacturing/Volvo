@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Car Ad </title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-   	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.6-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.6-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
   </head> 
 
@@ -20,34 +19,35 @@
 	</video>
 		</div>
 	</div>
-<button id="playButton" onclick="fullscreen()">Play/Pause</button>
+<div id="playButton" class="playButton" onclick="playPause()"></div>
 <script type="text/javascript"> 
-	var myVideo = document.getElementById("myvideo");
-var playButton = document.getElementById('playButton');
-	myFunction();
-function myFunction() {
-    playButton.click();
+	var bunnyVideo = document.getElementById("myvideo");
+
+function playPause() {
+  var el = document.getElementById("playButton");
+  if (bunnyVideo.paused) {
+  	if (bunnyVideo.requestFullscreen) {
+                        bunnyVideo.requestFullscreen();
+                    }
+                    else if (bunnyVideo.msRequestFullscreen) {
+                        bunnyVideo.msRequestFullscreen();
+                    }
+                    else if (bunnyVideo.mozRequestFullScreen) {
+                        bunnyVideo.mozRequestFullScreen();
+                    }
+                    else if (bunnyVideo.webkitRequestFullScreen) {
+                        bunnyVideo.webkitRequestFullScreen();
+                    }
+    bunnyVideo.play();
+    el.className ="";
+  } else {
+  
+    bunnyVideo.pause();
+    el.className = "playButton";
+  }
 }
-function fullscreen(){
-	if (myVideo.paused) {
-                    if (myVideo.requestFullscreen) {
-                        myVideo.requestFullscreen();
-                    }
-                    else if (myVideo.msRequestFullscreen) {
-                        myVideo.msRequestFullscreen();
-                    }
-                    else if (myVideo.mozRequestFullScreen) {
-                        myVideo.mozRequestFullScreen();
-                    }
-                    else if (myVideo.webkitRequestFullScreen) {
-                        myVideo.webkitRequestFullScreen();
-                    }
-                    myVideo.play();
-                }
-                else {
-                    myVideo.pause();
-                }
-}
+
+bunnyVideo.addEventListener("click", playPause, false);
 	</script>
   </body> 
 </html> 
