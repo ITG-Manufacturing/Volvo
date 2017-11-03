@@ -5,14 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Car Ad </title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-   	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.6-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.6-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
   </head> 
 
   <body> <div class="container">
 		<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
-		<video autoplay loop muted id="myvideo">
+		<video loop id="myvideo">
   		<source src="car_video_iphoneSE_canvas4.mp4" type="video/mp4">
 		<source src="car_video_iphoneSE_canvas4.webm" type="video/webm">
   		<source src="car_video_iphoneSE_canvas4.ogg" type="video/ogg">
@@ -20,34 +19,5 @@
 	</video>
 		</div>
 	</div>
-<button id="playButton" onclick="fullscreen()">Play/Pause</button>
-<script type="text/javascript"> 
-	var myVideo = document.getElementById("myvideo");
-var playButton = document.getElementById('playButton');
-	myFunction();
-function myFunction() {
-    playButton.click();
-}
-function fullscreen(){
-	if (myVideo.paused) {
-                    if (myVideo.requestFullscreen) {
-                        myVideo.requestFullscreen();
-                    }
-                    else if (myVideo.msRequestFullscreen) {
-                        myVideo.msRequestFullscreen();
-                    }
-                    else if (myVideo.mozRequestFullScreen) {
-                        myVideo.mozRequestFullScreen();
-                    }
-                    else if (myVideo.webkitRequestFullScreen) {
-                        myVideo.webkitRequestFullScreen();
-                    }
-                    myVideo.play();
-                }
-                else {
-                    myVideo.pause();
-                }
-}
-	</script>
   </body> 
 </html> 
