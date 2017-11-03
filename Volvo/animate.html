@@ -20,14 +20,16 @@
 	</video>
 		</div>
 	</div>
-<button id="playButton">Play/Pause</button>
+<button id="playButton" onclick="fullscreen()">Play/Pause</button>
 <script type="text/javascript"> 
-	$(document).ready(function() {
-		var myVideo = $("#myvideo");
-var playButton = $('#playButton');
-	playButton.trigger("click");
-		 playButton.click(function() {
-            if (myVideo.paused) {
+	var myVideo = document.getElementById("myvideo");
+var playButton = document.getElementById('playButton');
+	myFunction();
+function myFunction() {
+    playButton.click();
+}
+function fullscreen(){
+	if (myVideo.paused) {
                     if (myVideo.requestFullscreen) {
                         myVideo.requestFullscreen();
                     }
@@ -42,9 +44,10 @@ var playButton = $('#playButton');
                     }
                     myVideo.play();
                 }
-       		 });
-            
-		});
+                else {
+                    myVideo.pause();
+                }
+}
 	</script>
   </body> 
 </html> 
